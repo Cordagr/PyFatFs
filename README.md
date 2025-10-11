@@ -1,5 +1,5 @@
 ## Installation
-
+Click the following for the installation steps (https://github.com/Cordagr/PyFatFs/wiki)
 
 ## Development
 
