@@ -1,8 +1,8 @@
 ## Installation
 Click the following for the installation steps (https://github.com/Cordagr/PyFatFs/wiki/Installation)
 
-## Development
-
+## Documentation
+Wiki will be found at https://github.com/Cordagr/PyFatFs/wiki
 
 ## Credits
 
