@@ -218,23 +218,9 @@ python examples/file_manager_demo.py
 python examples/error_handling.py
 ```
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests and examples
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License. See LICENSE file for details.
-
 ## Credits
 
 - FatFs library by ChaN
-- Python C extension implementation
-- Contributors and maintainers
 
 ## Support
 
