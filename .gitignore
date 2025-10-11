@@ -1,0 +1,105 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+*.pyd
+*.dll
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+*.cover
+.pytest_cache/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Visual Studio Code
+.vscode/
+
+# Visual Studio
+.vs/
+*.vcxproj.user
+*.vcxproj.filters
+*.suo
+*.user
+*.sln.docstates
+*.tmp
+*.log
+
+# Visual C++ build artifacts
+*.obj
+*.pch
+*.pdb
+*.idb
+*.lib
+*.exp
+*.ilk
+
+# FatFs project specific
+# Compiled Python extensions
+fatfs.cp*.pyd
+
+# Build directories
+build/
+temp/
+
+# Test files and temporary data
+test_*.txt
+*.tmp
+virtual_disk.img
+fatfs_disk.dat
+
+# Virtual disk files
+*.vdisk
+*.fatimg
+
+# Development test scripts
+debug_*.py
+temp_*.py
+*_test.py
+minimal_*.py
+exception_test.py
+complete_working_test.py
+direct_api_test.py
+final_working_test.py
+
+# IDE and editor files
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+
+# Windows specific
+desktop.ini
