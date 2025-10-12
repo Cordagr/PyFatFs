@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/python-3.6%2B-blue?logo=python&logoColor=white)
 ![Last Commit](https://img.shields.io/github/last-commit/Cordagr/PyFatFs)
 
-[Website](#) • [Report an Issue](#) • [Documentation](#) • [Contribute](#)
+[Website](#) • [Report an Issue](#) • [Documentation](https://github.com/Cordagr/PyFatFs/wiki) • [Contribute](#)
 
 A minimal Python wrapper around the [FatFs](http://elm-chan.org/fsw/ff/00index_e.html) module, enabling FAT file system operations in embedded or constrained environments.
 
