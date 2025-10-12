@@ -1,8 +1,6 @@
-
+![Language](https://img.shields.io/badge/python-3.6%2B-blue?logo=python&logoColor=white)  
+![Last Commit](https://img.shields.io/github/last-commit/Cordagr/PyFatFs)  
 Lightweight Wrapper for FatFs - Generic FAT Filesystem Module
-![Language](https://img.shields.io/badge/python-3.6%2B-blue?logo=python&logoColor=white)
-![Last Commit](https://img.shields.io/github/last-commit/Cordagr/PyFatFs)
-
 
 
 ## Installation
