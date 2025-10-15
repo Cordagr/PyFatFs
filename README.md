@@ -153,19 +153,19 @@ info = FatFsDirectoryManager.get_file_info("myfile.txt")
 
 ## Features
 
-✅ **Complete FatFs API Coverage**
+ **Complete FatFs API Coverage**
 - All file access functions (f_open, f_close, f_read, f_write, f_lseek, f_truncate, f_sync, etc.)
 - All directory access functions (f_opendir, f_closedir, f_readdir)
 - All file/directory management functions (f_stat, f_unlink, f_rename, f_chmod, f_mkdir, etc.)
 - All volume management functions (f_mount, f_mkfs, f_getfree, f_getlabel, f_setlabel)
 
-✅ **High-Level Python Interface**
+ **High-Level Python Interface**
 - Context manager support for automatic resource cleanup
 - Pythonic file and directory operations
 - Enhanced error handling with descriptive messages
 - File manager for advanced operations
 
-✅ **Cross-Platform Compatibility**
+ **Cross-Platform Compatibility**
 - Windows, Linux, macOS support
 - Virtual disk support for testing
 - No external dependencies beyond build tools
