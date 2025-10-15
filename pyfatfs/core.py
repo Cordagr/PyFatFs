@@ -34,6 +34,13 @@ FA_CREATE_ALWAYS = 0x08   # Creates a new file, truncates if file exists
 FA_OPEN_ALWAYS = 0x10     # Opens file if exists, creates new if it doesn't
 FA_OPEN_APPEND = 0x30     # Opens file for append (sets pointer to end)
 
+# File attributes
+AM_RDO = 0x01    # Read only
+AM_HID = 0x02    # Hidden
+AM_SYS = 0x04    # System
+AM_DIR = 0x10    # Directory
+AM_ARC = 0x20    # Archive
+
 def mount(path="/", drive=0, opt=1):
     """
     Mount a filesystem
@@ -57,9 +64,10 @@ def open_file(path, mode=FA_READ):
         mode (int): Access mode flags
     
     Returns:
-        int or file pointer: File pointer if successful, error code if failed
+        int: File pointer if successful (large number), error code if failed (small number)
     """
-    return fatfs.open(path, mode)
+    result = fatfs.open(path, mode)
+    return result
 
 def close_file(fp):
     """
@@ -134,4 +142,251 @@ def get_error_string(error_code):
         FR_INVALID_PARAMETER: "Given parameter is invalid"
     }
     return error_messages.get(error_code, f"Unknown error code: {error_code}")
+
+# Extended file operations
+def lseek(fp, offset):
+    """
+    Move read/write pointer, expand size
+    
+    Args:
+        fp: File pointer
+        offset (int): New position
+    
+    Returns:
+        int: FatFs result code
+    """
+    return fatfs.lseek(fp, offset)
+
+def truncate_file(fp):
+    """
+    Truncate file size
+    
+    Args:
+        fp: File pointer
+    
+    Returns:
+        int: FatFs result code
+    """
+    return fatfs.truncate(fp)
+
+def sync_file(fp):
+    """
+    Flush cached data
+    
+    Args:
+        fp: File pointer
+    
+    Returns:
+        int: FatFs result code
+    """
+    return fatfs.sync(fp)
+
+def tell(fp):
+    """
+    Get current read/write pointer
+    
+    Args:
+        fp: File pointer
+    
+    Returns:
+        int: Current position
+    """
+    return fatfs.tell(fp)
+
+def eof(fp):
+    """
+    Test for end-of-file
+    
+    Args:
+        fp: File pointer
+    
+    Returns:
+        bool: True if at end of file
+    """
+    return fatfs.eof(fp)
+
+def file_size(fp):
+    """
+    Get file size
+    
+    Args:
+        fp: File pointer
+    
+    Returns:
+        int: File size in bytes
+    """
+    return fatfs.size(fp)
+
+def file_error(fp):
+    """
+    Test for file error
+    
+    Args:
+        fp: File pointer
+    
+    Returns:
+        bool: True if error occurred
+    """
+    return fatfs.error(fp)
+
+# Directory operations
+def opendir(path):
+    """
+    Open a directory
+    
+    Args:
+        path (str): Directory path
+    
+    Returns:
+        int: Directory pointer if successful (large number), error code if failed (small number)
+    """
+    result = fatfs.opendir(path)
+    return result
+
+def closedir(dp):
+    """
+    Close a directory
+    
+    Args:
+        dp: Directory pointer
+    
+    Returns:
+        int: FatFs result code
+    """
+    return fatfs.closedir(dp)
+
+def readdir(dp):
+    """
+    Read a directory item
+    
+    Args:
+        dp: Directory pointer
+    
+    Returns:
+        dict or None: File info dict or None if end of directory
+    """
+    return fatfs.readdir(dp)
+
+# File and directory management
+def stat(path):
+    """
+    Check existence of a file or sub-directory
+    
+    Args:
+        path (str): Path to check
+    
+    Returns:
+        dict: File information dictionary if successful, error code if failed
+    """
+    result = fatfs.stat(path)
+    return result
+
+def unlink(path):
+    """
+    Remove a file or sub-directory
+    
+    Args:
+        path (str): Path to remove
+    
+    Returns:
+        int: FatFs result code
+    """
+    return fatfs.unlink(path)
+
+def rename(old_name, new_name):
+    """
+    Rename/Move a file or sub-directory
+    
+    Args:
+        old_name (str): Current name
+        new_name (str): New name
+    
+    Returns:
+        int: FatFs result code
+    """
+    return fatfs.rename(old_name, new_name)
+
+def chmod(path, attr, mask):
+    """
+    Change attribute of a file or sub-directory
+    
+    Args:
+        path (str): File path
+        attr (int): Attributes to set
+        mask (int): Attribute mask
+    
+    Returns:
+        int: FatFs result code
+    """
+    return fatfs.chmod(path, attr, mask)
+
+def mkdir(path):
+    """
+    Create a sub-directory
+    
+    Args:
+        path (str): Directory path to create
+    
+    Returns:
+        int: FatFs result code
+    """
+    return fatfs.mkdir(path)
+
+def chdir(path):
+    """
+    Change current directory
+    
+    Args:
+        path (str): New current directory
+    
+    Returns:
+        int: FatFs result code
+    """
+    return fatfs.chdir(path)
+
+def getcwd():
+    """
+    Retrieve the current directory
+    
+    Returns:
+        str: Current working directory path
+    """
+    return fatfs.getcwd()
+
+# Volume management
+def getfree(path):
+    """
+    Get free space on the volume
+    
+    Args:
+        path (str): Volume path
+    
+    Returns:
+        dict: Free space information
+    """
+    return fatfs.getfree(path)
+
+def getlabel(path):
+    """
+    Get volume label
+    
+    Args:
+        path (str): Volume path
+    
+    Returns:
+        dict: Label and serial number
+    """
+    return fatfs.getlabel(path)
+
+def setlabel(label):
+    """
+    Set volume label
+    
+    Args:
+        label (str): New volume label
+    
+    Returns:
+        int: FatFs result code
+    """
+    return fatfs.setlabel(label)
 
